@@ -1,0 +1,133 @@
+﻿<Window x:Class="ResistorCalcChallenge.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResistorCalcChallenge"
+        mc:Ignorable="d"
+        Title="Resistor Color Code Calculator"
+        Height="350" Width="700"
+        MinWidth="550" MaxWidth="700"
+        MinHeight="300" MaxHeight="500">
+
+    <Window.Resources>
+        <ObjectDataProvider x:Key="ECC_Digits" MethodName="GetForDigits" ObjectType="{x:Type local:ColorCodeDataSource}"/>
+        <ObjectDataProvider x:Key="ECC_Multiplier" MethodName="GetForMultiplier" ObjectType="{x:Type local:ColorCodeDataSource}"/>
+        <ObjectDataProvider x:Key="ECC_Tolerance" MethodName="GetForTolerance" ObjectType="{x:Type local:ColorCodeDataSource}"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>  <!-- Drop Down Value Selectors -->
+            <RowDefinition Height="50"/> <!-- Resistor Value, etc. -->
+            <RowDefinition Height="45"/> <!-- Close Button -->
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Border BorderThickness="1" BorderBrush="Black" Margin="10,1,10,1">
+                <Grid HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/> <!-- Text Header -->
+                        <RowDefinition Height="30"/> <!-- Color Swatch -->
+                        <RowDefinition Height="Auto"/> <!-- Drop Down Selectors -->
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="36*"/>
+                        <ColumnDefinition Width="34*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="12">Band A</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="12">Band B</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="12">Band C</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="12">Band D</TextBlock>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Width="75" FontSize="12" Background="{Binding Path=BandA.Color}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Width="75" FontSize="12" Background="{Binding Path=BandB.Color}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Width="75" FontSize="12" Background="{Binding Path=BandC.Color}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Width="75" FontSize="12" Background="{Binding Path=BandD.Color}"/>
+
+                    <ComboBox x:Name="BandA" Grid.Row="2" Grid.Column="0" Width="80" MaxDropDownHeight="400" SelectedItem="{Binding Path=BandA, Mode=TwoWay}"
+                      ItemsSource="{Binding Source={StaticResource ECC_Digits}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=ColorName}"/>
+                                    <TextBlock Text=" - "/>
+                                    <TextBlock Text="{Binding Path=Key}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <ComboBox  x:Name="BandB" Grid.Row="2" Grid.Column="1" Width="80"  MaxDropDownHeight="400" SelectedItem="{Binding Path=BandB, Mode=TwoWay}"
+                      ItemsSource="{Binding Source={StaticResource ECC_Digits}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=ColorName}"/>
+                                    <TextBlock Text=" - "/>
+                                    <TextBlock Text="{Binding Path=Key}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <ComboBox x:Name="BandC" Grid.Row="2" Grid.Column="2" Width="150"  MaxDropDownHeight="400" SelectedItem="{Binding Path=BandC, Mode=TwoWay}"
+                      ItemsSource="{Binding Source={StaticResource ECC_Multiplier}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=ColorName}"/>
+                                    <TextBlock Text=" ( x "/>
+                                    <TextBlock Text="{Binding Path=Multiplier}"/>
+                                    <TextBlock Text=")"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <ComboBox x:Name="BandD" Grid.Row="2" Grid.Column="3" Width="120"  MaxDropDownHeight="400" SelectedItem="{Binding Path=BandD, Mode=TwoWay}"
+                      ItemsSource="{Binding Source={StaticResource ECC_Tolerance}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=ColorName}"/>
+                                    <TextBlock Text=" +/-  "/>
+                                    <TextBlock Text="{Binding Path=Tolerance}"/>
+                                    <TextBlock Text="%"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    
+                </Grid>
+            </Border>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <!-- Resistor Value -->
+            <Label FontSize="14" Height="28pt" VerticalAlignment="Center" Margin="0,0,0,0" Padding="5,5,5,5">Resistor Value:</Label>
+            <TextBox Text="{Binding Path=ResistorValue}" Width="Auto" Height="20pt" Padding="5,5,5,5" VerticalAlignment="Center" FontSize="12" MinWidth="30" Margin="0,0,0,0"></TextBox>
+            <Label FontSize="14" Height="28pt" VerticalAlignment="Center" Margin="0,0,0,0" Padding="5,5,5,5">Ohms</Label>
+
+            <!-- Minimum Value -->
+            <Label FontSize="14" Height="28pt" VerticalAlignment="Center" Margin="20,0,0,0">Min:</Label>
+            <TextBox Text="{Binding Path=MinValue}" Width="Auto" Height="20pt" Padding="5,5,5,5" VerticalAlignment="Center" FontSize="12" MinWidth="30" Margin="0,0,10,0"></TextBox>
+
+            <!-- Maximum Value -->
+            <Label FontSize="14" Height="28pt" VerticalAlignment="Center" Margin="0,0,0,0">Max:</Label>
+            <TextBox Text="{Binding Path=MaxValue}" Width="Auto" Height="20pt" Padding="5,5,5,5" VerticalAlignment="Center" FontSize="12" MinWidth="30" Margin="0,0,20,0"></TextBox>
+
+        </StackPanel>
+
+        <!-- Close Button -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="100" Height="35" FontSize="16" Click="Button_Click" >Close</Button>
+        </StackPanel>
+        
+    </Grid>
+</Window>

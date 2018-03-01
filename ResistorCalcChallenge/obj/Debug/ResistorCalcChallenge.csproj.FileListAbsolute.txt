@@ -1,0 +1,16 @@
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\bin\Debug\ResistorCalcChallenge.exe.config
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\bin\Debug\ResistorCalcChallenge.exe
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\bin\Debug\ResistorCalcChallenge.pdb
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge.csprojResolveAssemblyReference.cache
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\MainWindow.g.cs
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\App.g.cs
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge_MarkupCompile.cache
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge_MarkupCompile.lref
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\MainWindow.baml
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge.g.resources
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge.Properties.Resources.resources
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge.csproj.GenerateResource.Cache
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge.csproj.CoreCompileInputs.cache
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge.exe
+C:\DEV\VS2013Projects\ResistorCalcChallenge\ResistorCalcChallenge\obj\Debug\ResistorCalcChallenge.pdb
