@@ -1,0 +1,11 @@
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\bin\Debug\ResisterCalcChallenge.Tests.dll
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\bin\Debug\ResisterCalcChallenge.Tests.pdb
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\bin\Debug\nunit.framework.dll
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\bin\Debug\ResisterCalcChallenge.exe
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\bin\Debug\ResisterCalcChallenge.pdb
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\bin\Debug\ResisterCalcChallenge.exe.config
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\bin\Debug\nunit.framework.xml
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\obj\Debug\ResisterCalcChallenge.Tests.csprojResolveAssemblyReference.cache
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\obj\Debug\ResisterCalcChallenge.Tests.csproj.CoreCompileInputs.cache
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\obj\Debug\ResisterCalcChallenge.Tests.dll
+C:\DEV\VS2013Projects\ResisterCalcChallenge\ResisterCalcChallenge.Tests\obj\Debug\ResisterCalcChallenge.Tests.pdb
