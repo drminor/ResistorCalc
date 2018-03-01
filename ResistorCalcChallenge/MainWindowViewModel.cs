@@ -4,7 +4,7 @@ namespace ResistorCalcChallenge
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        OhmValueCalculator _ohmValueCalculator;
+        private readonly OhmValueCalculator _ohmValueCalculator;
 
         public MainWindowViewModel()
         {
@@ -60,7 +60,7 @@ namespace ResistorCalcChallenge
             set => SetProperty(ref _maxValue, value, "MaxValue");
         }
 
-        public void UpdateRValue()
+        private void UpdateRValue()
         {
             Tuple<double, double> valAndTolerance =_ohmValueCalculator.CalculateOhmValue
                 (
@@ -70,22 +70,35 @@ namespace ResistorCalcChallenge
                 BandD?.ElectronicColorCodeEnum ?? ElectronicColorCodeEnum.None
                 );
 
-            string valFormat;
+            string valFormat = GetFormat(valAndTolerance.Item1);
+            ResistorValue = valAndTolerance.Item1.ToString(valFormat);
 
-            if (valAndTolerance.Item1 < 1)
+            double minVal = valAndTolerance.Item1 - valAndTolerance.Item1 * valAndTolerance.Item2;
+            double maxVal = valAndTolerance.Item1 + valAndTolerance.Item1 * valAndTolerance.Item2;
+
+            valFormat = GetFormat(minVal);
+            MinValue = minVal.ToString(valFormat);
+            MaxValue = maxVal.ToString(valFormat);
+        }
+
+        private string GetFormat(double x)
+        {
+            string result;
+
+            if(x < 1)
             {
-                valFormat = "0.000;;0";
+                result = "0.0##;;0";
+            }
+            else if(x < 10)
+            {
+                result = "##0.0##;;0";
             }
             else
             {
-                valFormat = "###,###;;0";
+                result = "###,###;;0";
             }
 
-            ResistorValue = valAndTolerance.Item1.ToString(valFormat);
-
-            MinValue = (valAndTolerance.Item1 - valAndTolerance.Item1 * valAndTolerance.Item2).ToString();
-
-            MaxValue = (valAndTolerance.Item1 + valAndTolerance.Item1 * valAndTolerance.Item2).ToString();
+            return result;
         }
 
     }
